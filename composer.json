@@ -1,0 +1,33 @@
+{
+    "name": "robwittman/laravel-shopify-plugin",
+    "description": "Library to integrate Shopify with Laravel",
+    "authors": [
+        {
+            "name": "Rob Wittman",
+            "email": "rob@ihsdigital.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelShopifyPlugin\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelShopifyPlugin\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelShopifyPlugin\\ServiceProvider"
+            ],
+            "aliases": {
+                "Debugbar": "Barryvdh\\Debugbar\\Facade"
+            }
+        }
+    }
+}
