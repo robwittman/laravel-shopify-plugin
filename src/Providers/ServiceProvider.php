@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelShopifyPlugin;
+namespace LaravelShopifyPlugin\Providers;
 
 use Illuminate\Support\ServiceProvider as ServiceProviderInterface;
 

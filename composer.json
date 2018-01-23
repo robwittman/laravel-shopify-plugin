@@ -8,7 +8,8 @@
         }
     ],
     "require": {
-        "illuminate/support": "^5.5"
+        "illuminate/support": "^5.5",
+        "robwittman/shopify-php-sdk": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -23,10 +24,11 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelShopifyPlugin\\ServiceProvider"
+                "LaravelShopifyPlugin\\Providers\\ServiceProvider",
+                "LaravelShopifyPlugin\\Providers\\EventServiceProvider"
             ],
             "aliases": {
-                "Debugbar": "Barryvdh\\Debugbar\\Facade"
+
             }
         }
     }

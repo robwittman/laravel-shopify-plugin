@@ -47,13 +47,14 @@ return [
    |    Webhooks
    |--------------------------------------------------------------------------
    |
-   | List of webhook topics this app ought to be listening to
+   | List of webhook topics this app ought to be listening to.
+   | Keys represent the webhook topic to subscribe to, and the value
+   | is the URL to register.
    |
    */
 
   'webhooks' => [
-      'shops/update',
-      'app/uninstalled'
+      'app/uninstalled' => '/shopify/uninstall'
   ],
 
   /*
@@ -65,6 +66,6 @@ return [
   |
    */
   'script_tags' => [
-    
+
   ]
 ];
