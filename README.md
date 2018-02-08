@@ -60,7 +60,7 @@ An array of webhooks we should automatically install. If the array key is just t
 This will install the following.
 
 | Topic | Webhook Destination |
-|--- | --- | --- |
+| --- | --- |
 | `shop/update` | `https://app.com/shopify/shop/update` |
 | `app/uninstalled` | `https://app.com/my/custom/webhook` |
 | `products/create` | `https://app.com/endpoint1` |
