@@ -62,7 +62,8 @@ return [
   |    Script Tags
   |--------------------------------------------------------------------------
   |
-  | Script Tags that need to be installed
+  | Script Tags that need to be installed. Only supported event is onload,
+  | so we just list all URL's to add. Relative URL's will use current App domain
   |
    */
   'script_tags' => [
