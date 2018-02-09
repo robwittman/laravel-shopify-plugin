@@ -2,7 +2,7 @@
 
 namespace LaravelShopifyPlugin\Http\Controller;
 
-use Illuminate\Routing\BaseController;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Shopify\Api;
 use Shopify\Service\ShopService;
