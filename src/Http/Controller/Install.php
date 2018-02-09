@@ -17,8 +17,8 @@ class Install extends BaseController
 
     public function __invoke(Request $request)
     {
-        $this->api->setMyshopifyDomain($request->shop));
-        if (!$request->isMethod('post')) {
+        $this->api->setMyshopifyDomain($request->shop);
+        if ($request->isMethod('post')) {
             $this->install($request->code);
         } else {
             return redirect($this->getRedirectUri());
@@ -33,11 +33,7 @@ class Install extends BaseController
         $service = new ShopService($this->api);
         $shop = $service->get();
         event(new ShopInstalled(array('shop' => $shop, 'access_token' => $access_token)));
-        if (config('shopify.embedded')) {
-            return redirect("https://{$request->shop}/admin/apps/{$this->api->getApiKey()}");
-        } else {
-            return redirect(url(config('shopify.app_url')));
-        }
+        return redirect("https://{$request->shop}/admin/apps/{$this->api->getApiKey()}");
     }
 
     protected function getRedirectUri()

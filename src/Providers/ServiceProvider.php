@@ -9,13 +9,13 @@ class ServiceProvider extends ServiceProviderInterface
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/shopify.php' => config_path('shopify.php'),
+            __DIR__.'/../../config/shopify.php' => config_path('shopify.php'),
         ]);
         $this->loadRoutesFrom(
-            __DIR__.'/../routes.php'
+            __DIR__.'/../../routes.php'
         );
         $this->loadMigrationsFrom(
-            __DIR__.'/../migrations'
+            __DIR__.'/../../migrations'
         );
     }
 
