@@ -1,7 +1,7 @@
 <?php
 
-use LaravelShopifyPlugin\Http\Controllers\Auth;
-use LaravelShopifyPlugin\Http\Controllers\Install;
+use LaravelShopifyPlugin\Http\Controller\Install;
+use LaravelShopifyPlugin\Http\Controller\Uninstall;
 
 Route::group(['prefix' => 'shopify'], function() {
     Route::match(['get', 'post'], '/install', Install::class);
