@@ -26,7 +26,7 @@ return [
    |
    */
 
-   'redirect_uri' => env("SHOPIFY_REDIRECT_URI", '/shopify/auth'),
+   'redirect_uri' => env("SHOPIFY_REDIRECT_URI", '/shopify/install'),
 
    /*
    |--------------------------------------------------------------------------
