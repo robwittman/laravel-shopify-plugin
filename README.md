@@ -1,5 +1,9 @@
 ## Laravel Shopify Plugin
 
+[![Latest Stable Version](https://poser.pugx.org/robwittman/laravel-shopify-plugin/v/stable)](https://packagist.org/packages/robwittman/laravel-shopify-plugin)
+[![Total Downloads](https://poser.pugx.org/robwittman/laravel-shopify-plugin/downloads)](https://packagist.org/packages/robwittman/laravel-shopify-plugin)
+[![License](https://poser.pugx.org/robwittman/laravel-shopify-plugin/license)](https://packagist.org/packages/robwittman/laravel-shopify-plugin)
+
 This library integrates the Shopify API with your Laravel application.
 
 ### Installation
