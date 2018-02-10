@@ -24,8 +24,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelShopifyPlugin\\Providers\\ServiceProvider",
-                "LaravelShopifyPlugin\\Providers\\EventServiceProvider"
+                "LaravelShopifyPlugin\\Providers\\ServiceProvider"
             ],
             "aliases": {
 
