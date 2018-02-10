@@ -21,7 +21,7 @@ class Install extends BaseController
             abort(400, "A 'shop' parameter is required to install!");
         }
         $this->api->setMyshopifyDomain($request->shop);
-        if ($request->isMethod('post')) {
+        if ($request->code) {
             $this->install($request->code);
         } else {
             return redirect($this->getRedirectUri());
@@ -31,7 +31,7 @@ class Install extends BaseController
     protected function install($code)
     {
         $helper = $this->api->getOAuthHelper();
-        $token = $helper->getAccessToken($request->code);
+        $token = $helper->getAccessToken($code);
         $this->api->setAccessToken($token->access_token);
         $service = new ShopService($this->api);
         $shop = $service->get();
