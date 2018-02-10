@@ -31,11 +31,13 @@ class InstallWebhooks
             }
 
             $webhook = new Webhook();
-            $webhook->topic = $value;
+            $webhook->topic = $key;
             $webhook->address = $value;
             try {
                 $service->create($webhook);
             } catch (\Shopify\Exception\ShopifySdkException $e) {
+                error_log($e);
+            } catch (\GuzzleHttp\Exception\RequestException $e) {
                 error_log($e);
             }
         }

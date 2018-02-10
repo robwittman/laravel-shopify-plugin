@@ -29,7 +29,14 @@ class InstallScriptTags
             $script_tag = new ScriptTag();
             $script_tag->event = 'onload';
             $script_tag->src = $path;
-            $service->create($script_tag);
+            try {
+                $service->create($script_tag);
+            } catch (\Shopify\Exception\ShopifySdkException $e) {
+                error_log($e);
+            } catch (\GuzzleHttp\Exception\RequestException $e) {
+                error_log($e);
+            }
+
         }
     }
 }
