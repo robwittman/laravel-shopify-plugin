@@ -23,6 +23,7 @@ class Install extends BaseController
         $this->api->setMyshopifyDomain($request->shop);
         if ($request->code) {
             $this->install($request->code);
+            return redirect("https://{$request->shop}/admin/apps/{$this->api->getApiKey()}");
         } else {
             return redirect($this->getRedirectUri());
         }
@@ -36,7 +37,6 @@ class Install extends BaseController
         $service = new ShopService($this->api);
         $shop = $service->get();
         event(new ShopInstalled($shop, $token));
-        return redirect("https://{$request->shop}/admin/apps/{$this->api->getApiKey()}");
     }
 
     protected function getRedirectUri()
