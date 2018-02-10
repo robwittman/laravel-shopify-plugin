@@ -3,6 +3,7 @@
 namespace LaravelShopifyPlugin\Providers;
 
 use Illuminate\Support\ServiceProvider as ServiceProviderInterface;
+use LaravelShopifyPlugin\SessionBridge;
 
 class ServiceProvider extends ServiceProviderInterface
 {
@@ -21,6 +22,12 @@ class ServiceProvider extends ServiceProviderInterface
 
     public function register()
     {
-
+        $this->app->bind('Shopify\Api', function($app) {
+            $api = new \Shopify\Api([
+                'api_key' => config('shopify.api_key'),
+                'api_secret' => config('shopify.api_secret')
+            ]);
+            $api->setStorageInterface()
+        });
     }
 }
