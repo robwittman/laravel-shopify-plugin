@@ -5,7 +5,7 @@ namespace LaravelShopifyPlugin\Listeners;
 use Shopify\Api;
 use Shopify\Service\ScriptTagService;
 use Shopify\Resource\ScriptTag;
-use Log;
+use LaravelShopifyPlugin\Events\ShopInstalled;
 
 class InstallScriptTags
 {

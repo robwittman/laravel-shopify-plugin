@@ -5,7 +5,7 @@ namespace LaravelShopifyPlugin\Listeners;
 use Shopify\Api;
 use Shopify\Service\WebhookService;
 use Shopify\Resource\Webhook;
-use Log;
+use LaravelShopifyPlugin\Events\ShopInstalled;
 
 class InstallWebhooks
 {
