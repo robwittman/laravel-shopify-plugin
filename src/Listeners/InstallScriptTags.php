@@ -19,7 +19,7 @@ class InstallScriptTags
     public function handle(ShopInstalled $event)
     {
         $this->api->setMyshopifyDomain($event->shop->myshopify_domain);
-        $this->api->setAccessToken($event->token);
+        $this->api->setAccessToken($event->token->access_token);
         $service = new ScriptTagService($this->api);
         $script_tags = config('shopify.script_tags');
         foreach ($script_tags as $path) {

@@ -19,7 +19,7 @@ class InstallWebhooks
     public function handle(ShopInstalled $event)
     {
         $this->api->setMyshopifyDomain($event->shop->myshopify_domain);
-        $this->api->setAccessToken($event->token);
+        $this->api->setAccessToken($event->token->access_token);
         $service = new WebhookService($this->api);
         $webhooks = config('shopify.webhooks');
         foreach ($webhooks as $key => $value) {
