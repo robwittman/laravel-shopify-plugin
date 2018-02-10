@@ -79,3 +79,26 @@ use the current app domain.
 );
 ?>
 ```
+
+#### Events
+
+##### `ShopInstalled`
+
+Triggered anytime a new store authenticates with your application. This plugin includes 2 listeners that install required webhooks and script tags. You can also use this to send E-mails, persist the store to database, start tenant requirements, etc.
+
+To register the bundled webhooks, you can start with this
+###### EventServiceProvider.php
+```php
+<?php
+
+protected $listen = [
+    'LaravelShopifyPlugin\Events\ShopInstalled' => [
+        'LaravelShopifyPlugin\Listeners\InstallWebhooks',
+        'LaravelShopifyPlugin\Listeners\InstallScriptTags'
+    ],
+];
+```
+
+##### `AppUninstalled`
+
+Triggered anytime a store uninstalls your app. Use it to do any last cleanup before saying goodbye.
