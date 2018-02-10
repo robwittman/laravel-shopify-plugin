@@ -27,7 +27,8 @@ class ServiceProvider extends ServiceProviderInterface
                 'api_key' => config('shopify.api_key'),
                 'api_secret' => config('shopify.api_secret')
             ]);
-            $api->setStorageInterface()
+            $api->setStorageInterface(new SessionBridge());
+            return $api;
         });
     }
 }
