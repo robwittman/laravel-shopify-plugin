@@ -18,18 +18,18 @@ class InstallScriptTags
 
     public function handle(ShopInstalled $event)
     {
-        Log::debug("Installing script_tags for {$event->shop->myshopify_domain}");
         $this->api->setMyshopifyDomain($event->shop->myshopify_domain);
         $this->api->setAccessToken($event->token);
         $service = new ScriptTagService($this->api);
         $script_tags = config('shopify.script_tags');
         foreach ($script_tags as $path) {
+            if (!filter_var($path, FILTER_VALIDATE_URL)) {
+                $path = secure_url($path);
+            }
             $script_tag = new ScriptTag();
             $script_tag->event = 'onload';
-            $script_tag->src = secure_url($value);
+            $script_tag->src = $path;
             $service->create($script_tag);
-            Log::debug("ScriptTag {$script_tag->id} created");
         }
-        Log::debug("ScriptTags successfully installed for {$event->shop->myshopify_domain}");
     }
 }

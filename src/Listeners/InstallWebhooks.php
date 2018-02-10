@@ -18,7 +18,6 @@ class InstallWebhooks
 
     public function handle(ShopInstalled $event)
     {
-        Log::debug("Installing webhooks for {$event->shop->myshopify_domain}");
         $this->api->setMyshopifyDomain($event->shop->myshopify_domain);
         $this->api->setAccessToken($event->token);
         $service = new WebhookService($this->api);
@@ -27,12 +26,14 @@ class InstallWebhooks
             if (is_numeric($key)) {
                 $key = $value;
             }
+            if (!filter_var($value, FILTER_VALIDATE_URL)) {
+                $value = secure_url($value);
+            }
+
             $webhook = new Webhook();
             $webhook->topic = $value;
-            $webhook->address = secure_url($value);
+            $webhook->address = $value;
             $service->createWebhook($webhook);
-            Log::debug("Webhook {$webhook->id} created");
         }
-        Log::debug("Webhooks successfully installed for {$event->shop->myshopify_domain}");
     }
 }
