@@ -17,6 +17,9 @@ class Install extends BaseController
 
     public function __invoke(Request $request)
     {
+        if (!$request->shop) {
+            abort(400, "A 'shop' parameter is required to install!");
+        }
         $this->api->setMyshopifyDomain($request->shop);
         if ($request->isMethod('post')) {
             $this->install($request->code);
