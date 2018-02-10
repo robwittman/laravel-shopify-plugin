@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace LaravelShopifyPlugin\Events;
 
 use Illuminate\Queue\SerializesModels;
 
