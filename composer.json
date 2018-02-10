@@ -9,7 +9,7 @@
     ],
     "require": {
         "illuminate/support": "^5.5",
-        "robwittman/shopify-php-sdk": "^2.0"
+        "robwittman/shopify-php-sdk": "^2.1"
     },
     "autoload": {
         "psr-4": {
