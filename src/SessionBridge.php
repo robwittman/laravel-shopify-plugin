@@ -14,6 +14,6 @@ class SessionBridge implements PersistentStorageInterface
 
     public function set($key, $value)
     {
-        return Session::set($key, $value);
+        return Session::put($key, $value);
     }
 }
