@@ -35,7 +35,7 @@ class Install extends BaseController
         $this->api->setAccessToken($token->access_token);
         $service = new ShopService($this->api);
         $shop = $service->get();
-        event(new ShopInstalled(array('shop' => $shop, 'access_token' => $access_token)));
+        event(new ShopInstalled(array('shop' => $shop, 'access_token' => $token)));
         return redirect("https://{$request->shop}/admin/apps/{$this->api->getApiKey()}");
     }
 
