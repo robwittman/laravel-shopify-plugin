@@ -2,7 +2,7 @@
 
 namespace LaravelShopifyPlugin\Events;
 
-use Shopify\Resource\Shop;
+use Shopify\Object\Shop;
 use Illuminate\Queue\SerializesModels;
 
 class ShopInstalled
